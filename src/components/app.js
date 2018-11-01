@@ -1,5 +1,6 @@
 import React from 'react';
 
+import List from './list';
 import './app.css';
 
 export default class App extends React.Component {
@@ -23,16 +24,17 @@ export default class App extends React.Component {
          error: null,
          loading: true
         });
-        const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        const url = `https://api.petfinder.com/pet.find?key=22d46e7c691779733cabbeb71d1b0058&location=Arizona&format=json&animal=dog&callback=?`;
-        return fetch(proxyurl + url)
+        //const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        //const url = `https://api.petfinder.com/pet.find?key=22d46e7c691779733cabbeb71d1b0058&location=Arizona&format=json&animal=dog&callback=?`;
+        return fetch('https://api.petfinder.com/pet.find?key=22d46e7c691779733cabbeb71d1b0058&location=Arizona&format=json&animal=dog')
             .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
             }
             return res.json();
-            }).then(data => this.setState({
-                    array: data.pets.pet,
+            }).then(data => 
+                this.setState({
+                    array: data.petfinder.pets.pet ,
                     loading: false
                 })
             )
@@ -54,19 +56,13 @@ export default class App extends React.Component {
 
    render() {
         let body;
-        if (this.state.error) {
-            body = (
-                <div className="message message-error">{this.state.error}</div>
-            );
-        } else if (this.state.loading) {
-            body = (
-                <div className="message message-default">Loading board...</div>
-            );
-        } else {
-            const lists = this.state.array.map((list, index) => (
+   
+        const lists = this.state.array.map((list, index) => (
                 <li className="list-wrapper" key={index}>
+                    <List
                         index={index}
-                        {list} 
+                        {...list} 
+                    />    
                 </li>
             ));
             body = (
@@ -74,17 +70,15 @@ export default class App extends React.Component {
                     {lists}
                 </ul>
             );
-        }
+        
 
         return (
             <div className="board">
-                <h2>{this.props.title}</h2>
+                <h2>petfinder</h2>
                 {body}
             </div>
         );
-    }
+    
+}
 }
 
-App.defaultProps = {
-    title: 'PetFinder'
-};
