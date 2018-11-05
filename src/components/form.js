@@ -1,8 +1,8 @@
 import React from 'react';
 
-import React from 'react';
 
-import './add-form.css';
+
+import './form.css';
 
 export default class AddForm extends React.Component {
     constructor(props) {
@@ -15,8 +15,9 @@ export default class AddForm extends React.Component {
     onSubmit(event) {
         event.preventDefault();
         const text = this.textInput.value.trim();
+        const pet = this.petInput.value.trim();
         if (text && this.props.onAdd) {
-            this.props.onAdd(text);
+            this.props.onAdd(text, pet);
         }
         this.textInput.value = '';
     }
@@ -28,22 +29,14 @@ export default class AddForm extends React.Component {
     }
 
     render() {
-        if (!this.state.editing) {
-            return (
-                <div className="add-button"
-                    onClick={() => this.setEditing(true)}>
-                    <a href="#">Add a {this.props.type}...</a>
-                </div>
-            );
-        }
 
         return (
             <form className="card add-form" onSubmit={(e) => this.onSubmit(e)}>
+                <label>Zipcode </label>
                 <input type="text" ref={input => this.textInput = input} />
-                <button>Add</button>
-                <button type="button" onClick={() => this.setEditing(false)}>
-                    Cancel
-                </button>
+                <label>Your ideal pet </label>
+                <input type="text" placeHolder="Examples: Dog, Cat, bird, Reptile " ref={input => this.petInput = input} />
+                <button>submit</button>
             </form>
         );
     }
