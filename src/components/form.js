@@ -35,7 +35,7 @@ export default class AddForm extends React.Component {
                 <label>Zipcode </label>
                 <input type="text" ref={input => this.textInput = input} />
                 <label>Your ideal pet </label>
-                <input type="text" placeHolder="Examples: Dog, Cat, bird, Reptile " ref={input => this.petInput = input} />
+                <input type="text" placeholder="Examples: Dog, Cat, bird, Reptile " ref={input => this.petInput = input} />
                 <button>submit</button>
             </form>
         );

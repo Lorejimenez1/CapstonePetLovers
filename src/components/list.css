@@ -1,4 +1,21 @@
-.col-3 {
-    height: 400; 
-    width: 400;
+.card {
+  border: 1px solid #E5E5E5;
+  height: 160px;
+
+}
+.card-image {
+  width: 15%;
+  display: inline-block;
+  height: 160px;
+}
+.card-content {
+  display: inline-block;
+  height: 160px; 
+  width: 85%;
+
+}
+
+li {
+    font-size: 8px;
+    list-style: none;
 }

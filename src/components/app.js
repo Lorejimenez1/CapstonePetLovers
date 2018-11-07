@@ -11,8 +11,8 @@ export default class App extends React.Component {
         
         this.state = {
             array: [],
-            Zipcode: 0,
-            pet: "", 
+            Zipcode: Number,
+            pet: "dog", 
             loading: false,
             error: null
         };
@@ -25,7 +25,7 @@ export default class App extends React.Component {
         })
 
          
-        return fetch('https://api.petfinder.com/pet.find?key=22d46e7c691779733cabbeb71d1b0058&location='+this.state.Zipcode+'&format=json&animal='+this.state.pet+'&count=12')
+        return fetch('https://api.petfinder.com/pet.find?key=22d46e7c691779733cabbeb71d1b0058&location='+this.state.Zipcode+'&format=json&animal='+this.state.pet+'&count=8')
             .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
@@ -90,17 +90,17 @@ export default class App extends React.Component {
         let body;
    
         const lists = this.state.array.map((list, index) => (
-                <li className="list-wrapper" key={index}>
+                <div className="col-12" key={index}>
                     <List
                         index={index}
                         {...list} 
                     />    
-                </li>
+                </div>
             ));
             body = (
-                <ul className="lists">
+                <div className="row">
                     {lists}
-                </ul>
+                </div>
             );
         
 
