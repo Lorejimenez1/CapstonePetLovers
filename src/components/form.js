@@ -16,10 +16,11 @@ export default class AddForm extends React.Component {
         event.preventDefault();
         const text = this.textInput.value.trim();
         const pet = this.petInput.value.trim();
-        if (text && this.props.onAdd) {
+        if (text && pet && this.props.onAdd) {
             this.props.onAdd(text, pet);
         }
         this.textInput.value = '';
+        this.petInput.value = '';
     }
 
     setEditing(editing) {
@@ -31,11 +32,15 @@ export default class AddForm extends React.Component {
     render() {
 
         return (
-            <form className="card add-form" onSubmit={(e) => this.onSubmit(e)}>
-                <label>Zipcode </label>
+            <form className="add-form" onSubmit={(e) => this.onSubmit(e)}>
+                <label>
                 <input type="text" ref={input => this.textInput = input} />
-                <label>Your ideal pet </label>
-                <input type="text" placeholder="Examples: Dog, Cat, bird, Reptile " ref={input => this.petInput = input} />
+                 <div className="label-text">Zipcode</div>
+                </label>
+                <label> 
+                <input type="text" placeholder="I.E: dog, cat, or bird" ref={input => this.petInput = input} />
+                <div className="label-text">Animal</div>
+                </label>
                 <button>submit</button>
             </form>
         );

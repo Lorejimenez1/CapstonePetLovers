@@ -5,20 +5,23 @@ import './list.css';
 
 export default function List(props) {
     return (
-         <div className="card">
-            <img className="card-image" src={props.media.photos.photo[8].$t} alt="A surprising fig" />
-            <div className="card-content">
-                <li >
-                        {props.name.$t}
-                </li>
-                <li>    
-                        {props.breeds.breed.$t}
-                </li>
-                <li>    
-                        {props.lastUpdate.$t}
-                </li>
-            </div>
+        <div className="col-12">
+            <div className="card">
+                    <img className="card-image" src={props.media.photos.photo[3].$t} alt="A surprising fig" />
+                    <ul className="content">
+                            <li>
+                                    {props.name.$t} II {props.breeds.breed.$t}
+                            </li>
+                            <li>    
+                                    {props.description.$t}
+                            </li>
+                            <li>    
+                                    Contact: {props.contact.phone.$t} or {props.contact.email.$t}
+                            </li>
+                    </ul>    
+             </div>
          </div>           
+                    
           
         
     );

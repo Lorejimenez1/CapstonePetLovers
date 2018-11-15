@@ -12,20 +12,27 @@ export default class App extends React.Component {
         this.state = {
             array: [],
             Zipcode: Number,
-            pet: "dog", 
+            pet: 'dog', 
             loading: false,
-            error: null
+            error: "Could not load board"
         };
     }
 
     addZipcode(location, animal) {
         this.setState({
+            pet: animal,
             Zipcode: location,
-            pet: animal
         })
+        this.loadAnimals()    
+    }  
 
-         
-        return fetch('https://api.petfinder.com/pet.find?key=22d46e7c691779733cabbeb71d1b0058&location='+this.state.Zipcode+'&format=json&animal='+this.state.pet+'&count=8')
+
+
+    loadAnimals = () => {
+        console.log(this.state.pet)
+        const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        const url = 'https://api.petfinder.com/pet.find?key=22d46e7c691779733cabbeb71d1b0058&location='+this.state.Zipcode+'&format=json&animal='+this.state.pet+'&count=8'; 
+        return fetch(proxyurl + url)
             .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
@@ -37,49 +44,15 @@ export default class App extends React.Component {
                     loading: false
                 })
             )
-            .catch(err =>
+             .catch(err =>
                 this.setState({
                     error: 'Could not load board',
                     loading: false
                 })
             );
-
+             
     }
-    /*
-     componentDidMount() {
-        this.loadBoard();
-    }
-
-    loadBoard() {
-         this.setState({
-         error: null,
-         loading: true
-        });
-        //const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        //const url = `https://api.petfinder.com/pet.find?key=22d46e7c691779733cabbeb71d1b0058&location=Arizona&format=json&animal=dog&callback=?`;
-        let zip = this.state.Zipcode
-        return fetch('https://api.petfinder.com/pet.find?key=22d46e7c691779733cabbeb71d1b0058&location='+zip+'&format=json&animal=dog')
-            .then(res => {
-            if (!res.ok) {
-                return Promise.reject(res.statusText);
-            }
-            return res.json();
-            }).then(data => 
-                this.setState({
-                    array: data.petfinder.pets.pet ,
-                    loading: false
-                })
-            )
-            .catch(err =>
-                this.setState({
-                    error: 'Could not load board',
-                    loading: false
-                })
-            );
-    }
-     */   
     
-
     setEditing(editing) {
         this.setState({
             editing
@@ -90,7 +63,7 @@ export default class App extends React.Component {
         let body;
    
         const lists = this.state.array.map((list, index) => (
-                <div className="col-12" key={index}>
+                <div className="row" key={index}>
                     <List
                         index={index}
                         {...list} 
@@ -98,7 +71,7 @@ export default class App extends React.Component {
                 </div>
             ));
             body = (
-                <div className="row">
+                <div>
                     {lists}
                 </div>
             );
@@ -107,11 +80,14 @@ export default class App extends React.Component {
         return (
             
             <div>
-                <h2>Find your new Pet</h2>
-                <AddForm
-                type="card"
-                onAdd={(text, pet) => this.addZipcode(text, pet)}
-                />  
+                <img className="logo" src="https://techflourish.com/images/blue-cat-paws-clipart-6.png"/>
+                <h1>Find your new Pet</h1>   
+                <section className="form-column">
+                    <AddForm
+                    type="card"
+                    onAdd={(text, pet) => this.addZipcode(text, pet)}
+                />
+                </section>    
                 {body}
             </div>
         );

@@ -1,9 +1,24 @@
 body {
     font-family: sans-serif;
-    background: whitesmoke;
+    background: #E6E6EA;
     padding: 0;
     margin: 0;
   }
+  * {
+  box-sizing: border-box;
+}
+h1 {
+  font-size: 15px;
+  font-weight: bold;
+  margin: auto;
+  text-align: center; 
+}
+h2 {
+  font-size: 14px; 
+  margin: auto;
+  text-align: center;
+  font-weight: bold; 
+}
   
  
 
