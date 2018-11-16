@@ -3,13 +3,13 @@
    background-color: #7F7F7F;
     color: white;
     border: 1px solid #FED766;
-    height: 205px;
+    height: 220px;
 }
 .card-image {
   border: 1px solid #FED766;
   display: inline-block;  
   width: 150px;
-  height: 179px;
+  height: 200px;
   border-radius: 50%;
 }
 .content {
@@ -18,7 +18,7 @@
   bottom:  30px;
   display: inline-block;
   height: 100%;
-  width: 60%;
+  width: 55%;
    
 }
 ul {
@@ -27,13 +27,13 @@ ul {
 }
 li {
     display: inline-block;
-    font-size: 11px;
-    padding: 10px;
+    font-size: 12px;
+    padding: 2px;
 }
 li:first-child {
   border: 1px solid white;
   border-radius: 3%;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   background-color: #FED766;
   color: black;
@@ -49,7 +49,7 @@ li:first-child {
   
 }
 li {
-  font-size: 10px;
+  font-size: 9px;
 }
 /*
  position: relative;
@@ -63,7 +63,36 @@ li {
   position: static;
 
 }
+.col-12 {
+  margin-bottom: 10px;
 }
+}
+@media only screen and (max-width: 540px) {
+  .card-image {
+  width: 140px;
+  height: 140px;
+  border-radius: 5%;
+  margin-bottom: 10px;
+  
+}
+li {
+  font-size: 8px;
+}
+
+  }
+  @media only screen and (max-width: 470px) { 
+    .col-12 {
+      height: 300px;
+
+
+    }
+    .card {
+      height: 300px;
+    }
+    li {
+      font-size: 9px;
+    }
+  }
 .col-3, .col-4, .col-6, .col-12 {
   float: left;
 
@@ -103,7 +132,7 @@ li {
   /* 12 columns, 12/12 in % */
   .col-12 {
     width: 100%;
-    height: 180px;
+    height: 220px;
     margin-bottom: 50px;
     
     
