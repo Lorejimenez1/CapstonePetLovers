@@ -2,32 +2,27 @@ import React from 'react';
 
 import List from './list';
 import AddForm from './form';
-
+import NavigationBar from './navbar';
+import Events from './events';
 import './app.css';
 
-export default class App extends React.Component {
+import {connect} from 'react-redux';
+import { fetchPets} from '../actions';
+
+export  class App extends React.Component {
     constructor(props) {
         super(props);
         
-        this.state = {
-            array: [],
-            Zipcode: Number,
-            pet: 'dog', 
-            loading: false,
-            error: "Could not load board"
-        };
-    }
 
-    addZipcode(location, animal) {
-        this.setState({
-            pet: animal,
-            Zipcode: location,
-        })
-        this.loadAnimals()    
-    }  
+}
+   
+   search(location, animal) {
+
+        this.props.dispatch(fetchPets(location, animal));
+    } 
 
 
-
+    /*
     loadAnimals = () => {
         console.log(this.state.pet)
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
@@ -52,7 +47,7 @@ export default class App extends React.Component {
             );
              
     }
-    
+    */
     setEditing(editing) {
         this.setState({
             editing
@@ -62,7 +57,7 @@ export default class App extends React.Component {
    render() {
         let body;
    
-        const lists = this.state.array.map((list, index) => (
+        const lists = this.props.pets.map((list, index) => (
                 <div className="row" key={index}>
                     <List
                         index={index}
@@ -78,6 +73,7 @@ export default class App extends React.Component {
         
 
         return (
+        
             
             <div>
                 <img className="logo" src="https://techflourish.com/images/blue-cat-paws-clipart-6.png"/>
@@ -85,13 +81,20 @@ export default class App extends React.Component {
                 <section className="form-column">
                     <AddForm
                     type="card"
-                    onAdd={(text, pet) => this.addZipcode(text, pet)}
+                    onAdd={(text, pet) => this.search(text, pet)}
                 />
                 </section>    
                 {body}
             </div>
+        
         );
     
 }
 }
+
+const mapStateToProps = state => ({
+    pets: state.pets,
+});
+
+export default connect(mapStateToProps)(App);
 
