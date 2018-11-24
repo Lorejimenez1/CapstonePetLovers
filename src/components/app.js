@@ -58,7 +58,7 @@ export  class App extends React.Component {
         let body;
    
         const lists = this.props.pets.map((list, index) => (
-                <div className="row" key={index}>
+                <div key={index}>
                     <List
                         index={index}
                         {...list} 
@@ -66,7 +66,7 @@ export  class App extends React.Component {
                 </div>
             ));
             body = (
-                <div>
+                <div className="row-container">
                     {lists}
                 </div>
             );

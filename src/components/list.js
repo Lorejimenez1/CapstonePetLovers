@@ -5,22 +5,23 @@ import './list.css';
 
 export default function List(props) {
     return (
-        <div className="col-12">
-            <div className="card">
-                    <img className="card-image" src={props.media.photos.photo[3].$t} alt="A surprising fig" />
-                    <ul className="content">
-                            <li>
-                                    {props.name.$t} II {props.breeds.breed.$t}
+        
+                    <ul className="container">
+                            <img className=" img item" src={props.media.photos.photo[3].$t} alt="A surprising fig" />
+                    
+                            <li className="item">
+                                    Meet {props.name.$t}/{props.breeds.breed.$t} currently in {props.contact.city.$t}   
                             </li>
-                            <li>    
-                                    {props.description.$t}
-                            </li>
-                            <li>    
+                            <li className="item">    
                                     Contact: {props.contact.phone.$t} or {props.contact.email.$t}
                             </li>
+                            <li className="item">    
+                                    
+                                    {props.description.$t}
+                            </li>
                     </ul>    
-             </div>
-         </div>           
+             
+                    
                     
           
         

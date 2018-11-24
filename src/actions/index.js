@@ -7,7 +7,7 @@ export const fetchpPetsSuccess = pets => ({
 
 export const fetchPets = (location, animal) => dispatch => {
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
-    const url = 'https://api.petfinder.com/pet.find?key=22d46e7c691779733cabbeb71d1b0058&location='+location+'&format=json&animal='+animal+'&count=8'; 
+    const url = 'https://api.petfinder.com/pet.find?key=22d46e7c691779733cabbeb71d1b0058&location='+location+'&format=json&animal='+animal+'&count=6'; 
     return fetch(proxyurl + url)
             .then(res => {
             if (!res.ok) {
