@@ -5,8 +5,8 @@
 	position: relative;
 	left:  47%;
 	right: 47%;
-	height: 100px; 
-	width: 100px;
+	height: 115px; 
+	width: 115px;
 }
 
 /* Grid measurements:
@@ -38,8 +38,16 @@
 .row::after {
   clear: both;
 }
+
 .row-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: row wrap;
+  justify-content: space-around;
+  background-color: #F4f4f4;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  padding-bottom: 150px;
 }
 

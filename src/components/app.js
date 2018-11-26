@@ -16,9 +16,9 @@ export  class App extends React.Component {
 
 }
    
-   search(location, animal) {
+   search(location, animal, breed) {
 
-        this.props.dispatch(fetchPets(location, animal));
+        this.props.dispatch(fetchPets(location, animal, breed));
     } 
 
 
@@ -56,12 +56,12 @@ export  class App extends React.Component {
 
    render() {
         let body;
-   
+       
         const lists = this.props.pets.map((list, index) => (
                 <div key={index}>
                     <List
                         index={index}
-                        {...list} 
+                        {...list}
                     />    
                 </div>
             ));
@@ -81,7 +81,7 @@ export  class App extends React.Component {
                 <section className="form-column">
                     <AddForm
                     type="card"
-                    onAdd={(text, pet) => this.search(text, pet)}
+                    onAdd={(text, pet, breed) => this.search(text, pet, breed)}
                 />
                 </section>    
                 {body}

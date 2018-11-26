@@ -1,13 +1,16 @@
 
 export const FETCH_PETS_SUCCESS = 'FETCH_PETS_SUCCESS';
-export const fetchpPetsSuccess = pets => ({
+export const fetchPetsSuccess = pets => ({
     type: FETCH_PETS_SUCCESS,
     pets
 });
 
-export const fetchPets = (location, animal) => dispatch => {
+export const fetchPets = (location, animal, breed) => dispatch => {
+    if(breed == undefined) {
+        const breed=""
+    }
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
-    const url = 'https://api.petfinder.com/pet.find?key=22d46e7c691779733cabbeb71d1b0058&location='+location+'&format=json&animal='+animal+'&count=6'; 
+    const url = 'https://api.petfinder.com/pet.find?key=22d46e7c691779733cabbeb71d1b0058&location='+location+'&format=json&animal='+animal+'&count=6&breed='+breed; 
     return fetch(proxyurl + url)
             .then(res => {
             if (!res.ok) {
@@ -16,7 +19,7 @@ export const fetchPets = (location, animal) => dispatch => {
             return res.json();
         })
         .then(data => {
-            dispatch(fetchpPetsSuccess(data.petfinder.pets.pet));
+            dispatch(fetchPetsSuccess(data.petfinder.pets.pet));
         });
 };
 
