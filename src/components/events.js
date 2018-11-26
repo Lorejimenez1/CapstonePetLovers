@@ -5,24 +5,28 @@ import './list.css';
 
 export default function Events(props) {
     return (
-        <div className="col-12">
-            <div className="card">
-                    <img className="card-image" src="https://techflourish.com/images/blue-cat-paws-clipart-6.png" alt="A surprising fig" />
-                  
-                    <ul className="content">
-                            <li>
-                                    {props.title}
+       <ul className="container" id="container">
+                            <img className=" img item" src={this.props.imgURL} alt="Company logo or image reference" />
+                    
+                            <li className="item">
+                                 {this.props.title} 
                             </li>
-                             <li>
-                                    {props.host}
+                            <li className="item">
+                                Powered by {this.props.host}        
+                               
                             </li>
-                             <li>
-                                    {props.date}
+                            <li className="item">  
+                                 Location: {this.props.location}
+                             </li>   
+                             
+                            <li className="item"> 
+                                 {this.props.date}
                             </li>
 
+                            <li className="item"> 
+                                 {this.props.description}
+                            </li>
                     </ul>    
-             </div>
-         </div>           
                     
           
         

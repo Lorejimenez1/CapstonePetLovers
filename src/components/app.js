@@ -22,37 +22,7 @@ export  class App extends React.Component {
     } 
 
 
-    /*
-    loadAnimals = () => {
-        console.log(this.state.pet)
-        const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        const url = 'https://api.petfinder.com/pet.find?key=22d46e7c691779733cabbeb71d1b0058&location='+this.state.Zipcode+'&format=json&animal='+this.state.pet+'&count=8'; 
-        return fetch(proxyurl + url)
-            .then(res => {
-            if (!res.ok) {
-                return Promise.reject(res.statusText);
-            }
-            return res.json();
-            }).then(data => 
-                this.setState({
-                    array: data.petfinder.pets.pet ,
-                    loading: false
-                })
-            )
-             .catch(err =>
-                this.setState({
-                    error: 'Could not load board',
-                    loading: false
-                })
-            );
-             
-    }
-    */
-    setEditing(editing) {
-        this.setState({
-            editing
-        });
-    }
+    
 
    render() {
         let body;
