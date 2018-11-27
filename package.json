@@ -15,7 +15,8 @@
     "react-spinkit": "^3.0.0",
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0",
-    "sass": "^1.14.3"
+    "sass": "^1.14.3",
+    "webpack": "^2.5.1"
   },
   "scripts": {
     "start": "react-scripts start",
