@@ -25,6 +25,7 @@ export default class AddForm extends React.Component {
 
         this.textInput.value = '';
         this.petInput.value = '';
+        this.breedInput.value = ''
     }
 
 
@@ -42,7 +43,7 @@ export default class AddForm extends React.Component {
                 <div className="label-text">Animal</div>
                 </label>
                 <label> 
-                <input type="text"  ref={input => this.breedInput = input} />
+                <input type="text" placeholder="Optional" ref={input => this.breedInput = input} />
                 <div className="label-text">Breed</div>
                 </label>
                 <button  formNoValidate="formNoValidate" type="submit">Submit</button>

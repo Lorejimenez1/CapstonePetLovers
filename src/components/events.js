@@ -3,10 +3,14 @@ import React from 'react';
 //import AddForm from './add-form';
 import './list.css';
 
-export default function Events(props) {
-    return (
+export default class Events extends React.Component {
+    constructor(props) {
+        super(props);
+    } 
+     render() {
+        return (
        <ul className="container" id="container">
-                            <img className=" img item" src={this.props.imgURL} alt="Company logo or image reference" />
+                            <img className=" img item" src={'https://static1.squarespace.com/static/50eb5641e4b0684ae74d6dc0/t/56fc8557e32140af89ee9937/1459389790188/'} alt="Company logo or image reference" />
                     
                             <li className="item">
                                  {this.props.title} 
@@ -24,11 +28,9 @@ export default function Events(props) {
                             </li>
 
                             <li className="item"> 
-                                 {this.props.description}
+                                 {this.props.details}
                             </li>
                     </ul>    
-                    
-          
-        
-    );
+        );
+    }
 };

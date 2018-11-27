@@ -12,8 +12,8 @@ export default class List extends React.Component {
    
  
     render() {
-         const description = this.props.description.$t
-         //const description = slice.slice(0, 150);
+         const description = this.props.description.$t.slice(0, 740);
+         
          return (
         
                     <ul className="container" id="container">
