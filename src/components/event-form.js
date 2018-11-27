@@ -8,7 +8,6 @@ export default class EventForm extends React.Component {
     constructor(props) {
         super(props);
     }
-
     onSubmit(event) {
         event.preventDefault();
         const text = this.textInput.value.trim();

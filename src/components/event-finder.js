@@ -13,15 +13,12 @@ export class EventFinder extends React.Component {
     constructor(props) {
         super(props);
         
-     
     }
 
    search(location) {
-
         this.props.dispatch(fetchBoard(location));
     }
    
-
    render() {
         let body;
    
@@ -42,7 +39,6 @@ export class EventFinder extends React.Component {
                 
             ;
         
-
         return (
         
             
@@ -60,7 +56,7 @@ export class EventFinder extends React.Component {
         
         );
     
-}
+    }
 }
 
 const mapStateToProps = state => ({

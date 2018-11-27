@@ -65,8 +65,7 @@ button {
   margin: auto;
   }
   button:hover, button:focus {
-    background-color: white;
+    background-color: silver;
     color: #333333;
     outline: 0;
-
 }

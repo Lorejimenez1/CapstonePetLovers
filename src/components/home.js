@@ -1,8 +1,6 @@
 import React from 'react';
 
-import ReactDOM from 'react-dom';
 import App from './app';
-import AddForm from './form';
 import NavigationBar from './navbar';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import EventFinder from './event-finder';

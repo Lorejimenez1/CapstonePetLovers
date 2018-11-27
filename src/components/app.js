@@ -12,18 +12,11 @@ import { fetchPets} from '../actions';
 export  class App extends React.Component {
     constructor(props) {
         super(props);
-        
-
 }
-   
    search(location, animal, breed) {
-
         this.props.dispatch(fetchPets(location, animal, breed));
     } 
-
-
     
-
    render() {
         let body;
        
