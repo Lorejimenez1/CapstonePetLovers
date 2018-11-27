@@ -34,7 +34,7 @@ export const fetchBoardSuccess = array => ({
 
 export const fetchBoard = location =>   dispatch => {
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        const url = 'http://localhost:8080/api/event/'+location
+        const url = 'https://stark-plateau-21732.herokuapp.com/'+location
         return fetch(url)
         .then(res => {
             if (!res.ok) {
