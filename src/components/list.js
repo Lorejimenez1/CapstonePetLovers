@@ -4,13 +4,7 @@ import React from 'react';
 import './list.css';
 
 export default class List extends React.Component {
-    constructor(props) {
-        super(props);
 
-    }
-
-   
- 
     render() {
          const description = this.props.description.$t.slice(0, 740);
          

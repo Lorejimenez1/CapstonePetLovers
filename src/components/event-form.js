@@ -5,12 +5,10 @@ import React from 'react';
 import './form.css';
 
 export default class EventForm extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+
     onSubmit(event) {
         event.preventDefault();
-        const text = this.textInput.value.trim();
+        const text = this.textInput.value.charAt(0).toLowerCase() + this.textInput.value.slice(1);
         
         if (text &&  this.props.onAdd) {
             this.props.onAdd(text );

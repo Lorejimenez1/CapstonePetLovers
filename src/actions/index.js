@@ -6,7 +6,7 @@ export const fetchPetsSuccess = pets => ({
 });
 
 export const fetchPets = (location, animal, breed) => dispatch => {
-    if(breed == undefined) {
+    if(breed === undefined) {
         const breed=""
     }
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
@@ -33,8 +33,7 @@ export const fetchBoardSuccess = array => ({
 });
 
 export const fetchBoard = location =>   dispatch => {
-        const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        const url = 'https://stark-plateau-21732.herokuapp.com/'+location
+        const url = 'https://stark-plateau-21732.herokuapp.com/api/event/'+location
         return fetch(url)
         .then(res => {
             if (!res.ok) {

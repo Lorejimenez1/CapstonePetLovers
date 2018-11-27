@@ -6,14 +6,9 @@ import Events from './events';
 import EventForm from './event-form';
 
 
-
 import './app.css';
 
 export class EventFinder extends React.Component {
-    constructor(props) {
-        super(props);
-        
-    }
 
    search(location) {
         this.props.dispatch(fetchBoard(location));
@@ -32,7 +27,7 @@ export class EventFinder extends React.Component {
             ));
             body = 
             (
-            <div className="row-container">
+            <div className="row">
                 {lists}
             </div>
             )
@@ -43,7 +38,7 @@ export class EventFinder extends React.Component {
         
             
             <div>
-                <img className="logo" src="https://techflourish.com/images/blue-cat-paws-clipart-6.png"/>
+                <img className="logo" src="https://techflourish.com/images/blue-cat-paws-clipart-6.png" alt="animals and paws logo"/>
                 <h1>Find events nationwide</h1>   
                 <section className="form-column">
                     <EventForm

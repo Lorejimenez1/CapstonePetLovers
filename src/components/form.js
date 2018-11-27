@@ -5,16 +5,12 @@ import React from 'react';
 import './form.css';
 
 export default class AddForm extends React.Component {
-    constructor(props) {
-        super(props);
-
-    }
 
     onSubmit(event) {
         event.preventDefault();
         const text = this.textInput.value.trim();
-        const pet = this.petInput.value.charAt(0).toLowerCase() + this.petInput.value.slice(1);;;
-        const breed = this.breedInput.value.charAt(0).toUpperCase() + this.breedInput.value.slice(1);; 
+        const pet = this.petInput.value.charAt(0).toLowerCase() + this.petInput.value.slice(1);
+        const breed = this.breedInput.value.charAt(0).toUpperCase() + this.breedInput.value.slice(1); 
         if (text && pet && breed && this.props.onAdd) {
             this.props.onAdd(text, pet, breed);
         }

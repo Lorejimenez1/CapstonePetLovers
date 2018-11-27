@@ -2,17 +2,13 @@ import React from 'react';
 
 import List from './list';
 import AddForm from './form';
-import NavigationBar from './navbar';
-import Events from './events';
+
 import './app.css';
 
 import {connect} from 'react-redux';
 import { fetchPets} from '../actions';
 
 export  class App extends React.Component {
-    constructor(props) {
-        super(props);
-}
    search(location, animal, breed) {
         this.props.dispatch(fetchPets(location, animal, breed));
     } 
@@ -29,7 +25,7 @@ export  class App extends React.Component {
                 </div>
             ));
             body = (
-                <div className="row-container">
+                <div className="row">
                     {lists}
                 </div>
             );
@@ -39,7 +35,7 @@ export  class App extends React.Component {
         
             
             <div>
-                <img className="logo" src="https://techflourish.com/images/blue-cat-paws-clipart-6.png"/>
+                <img className="logo" src="https://techflourish.com/images/blue-cat-paws-clipart-6.png" alt="animal logo"/>
                 <h1>Find your new Pet</h1>   
                 <section className="form-column">
                     <AddForm
@@ -52,7 +48,7 @@ export  class App extends React.Component {
         
         );
     
-}
+    }
 }
 
 const mapStateToProps = state => ({
