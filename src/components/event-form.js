@@ -22,7 +22,7 @@ export default class EventForm extends React.Component {
         return (
             <form className="add-form" onSubmit={(e) => this.onSubmit(e)}>
                 <label>
-                <input type="text" ref={input => this.textInput = input} />
+                <input type="text" placeHolder="example: arizona" ref={input => this.textInput = input} />
                  <div className="label-text">State</div>
                 </label>
                 <button>submit</button>

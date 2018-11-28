@@ -20,7 +20,7 @@ describe('eventReducer', () => {
         expect(state).toBe(currentState);
     });
 
-     describe('fetchBoardSuccess', () => {
+     describe('fetchEventsSuccess', () => {
         it('Should replace the entire state', () => {
             const board =  ['list 1', 'list 2'];
             const expected = {"array": ["list 1", "list 2"], "error": null, "loading": false, "pets": []}
