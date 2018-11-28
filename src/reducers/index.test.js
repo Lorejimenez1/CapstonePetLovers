@@ -1,18 +1,16 @@
 import {eventReducer} from './index';
-import {fetchPetsSuccess, fetchBoardSuccess} from '../actions';
+import {fetchPetsSuccess, fetchEventsSuccess} from '../actions';
 
 describe('eventReducer', () => {
 	
    
-        
-
 	 it('Should set the initial state when nothing is passed in', () => {
         const state = eventReducer(undefined, {type: '__UNKNOWN'});
         expect(state).toEqual({
             pets: [],
             array: [],
             loading: false,
-            error: "Could not load events"
+            error: null
         });
     });
 
@@ -26,7 +24,7 @@ describe('eventReducer', () => {
         it('Should replace the entire state', () => {
             const board =  ['list 1', 'list 2'];
             const expected = {"array": ["list 1", "list 2"], "error": null, "loading": false, "pets": []}
-            const state = eventReducer(undefined, fetchBoardSuccess(board));
+            const state = eventReducer(undefined, fetchEventsSuccess(board));
             expect(state).toEqual(expected);
         });
     });

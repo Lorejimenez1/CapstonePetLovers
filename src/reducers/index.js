@@ -4,11 +4,11 @@ const initialState = {
             pets: [],
             array: [],
             loading: false,
-            error: "Could not load events"
+            error: null
 };
 
 export const eventReducer = (state=initialState, action) => {
-	if (action.type === actions.FETCH_BOARD_SUCCESS) {
+	if (action.type === actions.FETCH_EVENTS_SUCCESS) {
         return Object.assign({}, state, {
             array: action.array,
             loading: false,
@@ -20,6 +20,18 @@ export const eventReducer = (state=initialState, action) => {
             pets: action.pets,
             loading: false,
             error: null
+        });
+    }
+      else if (action.type === actions.FETCH_PETS_ERROR) {
+        return Object.assign({}, state, {
+            error: action.error,
+            loading: false
+        });
+    }
+       else if (action.type === actions.FETCH_EVENTS_ERROR) {
+        return Object.assign({}, state, {
+            error: action.error,
+            loading: false
         });
     }
      

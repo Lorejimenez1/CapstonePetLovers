@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { fetchBoard} from '../actions';
+import { fetchEvents} from '../actions';
 
 import Events from './events';
 import EventForm from './event-form';
@@ -11,7 +11,7 @@ import './app.css';
 export class EventFinder extends React.Component {
 
    search(location) {
-        this.props.dispatch(fetchBoard(location));
+        this.props.dispatch(fetchEvents(location));
     }
    
    render() {

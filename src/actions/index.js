@@ -4,6 +4,11 @@ export const fetchPetsSuccess = pets => ({
     type: FETCH_PETS_SUCCESS,
     pets
 });
+export const FETCH_PETS_ERROR = 'FETCH_PETS_ERROR';
+export const fetchPetsError = error => ({
+    type: FETCH_PETS_ERROR,
+    error
+});
 
 export const fetchPets = (location, animal, breed) => dispatch => {
     if(breed === undefined) {
@@ -21,18 +26,26 @@ export const fetchPets = (location, animal, breed) => dispatch => {
         .then(data => {
             dispatch(fetchPetsSuccess(data.petfinder.pets.pet));
         });
+  
+
 };
 
  
 
+export const FETCH_EVENTS_ERROR = 'FETCH_EVENTS_ERROR';
+export const fetchEventsError = error => ({
+    type: FETCH_EVENTS_ERROR,
+    error
+});
 
-export const FETCH_BOARD_SUCCESS = 'FETCH_BOARD_SUCCESS';
-export const fetchBoardSuccess = array => ({
-    type: FETCH_BOARD_SUCCESS,
+
+export const FETCH_EVENTS_SUCCESS = 'FETCH_EVENTS_SUCCESS';
+export const fetchEventsSuccess = array => ({
+    type: FETCH_EVENTS_SUCCESS,
     array
 });
 
-export const fetchBoard = location =>   dispatch => {
+export const fetchEvents = location =>   dispatch => {
         const url = 'https://stark-plateau-21732.herokuapp.com/api/event/'+location
         return fetch(url)
         .then(res => {
@@ -42,6 +55,8 @@ export const fetchBoard = location =>   dispatch => {
             return res.json();
         })
         .then(array => {
-            dispatch(fetchBoardSuccess(array));
+            dispatch(fetchEventsSuccess(array))
         });
+        
+        
 };

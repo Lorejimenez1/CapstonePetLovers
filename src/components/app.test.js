@@ -14,7 +14,7 @@ describe('<App/>', () => {
     });
 
     
-    it('Renders  h1 title', () => {
+    it('Renders  title', () => {
         const dispatch = jest.fn();
         const wrapper = shallow(<App pets={[]} dispatch={dispatch} />);
         expect(wrapper.contains(<h1>Find your new Pet</h1>)).toEqual(true);
