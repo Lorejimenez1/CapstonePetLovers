@@ -13,14 +13,14 @@ My vision was creating an app to find a specific animal and or breed in your are
 ### How It Works
 #### For petfinder
 + Enter your zipcode, what kind of animal your loooking for and you can but it is not neccesary to ento the breed of the animal 
-![HomePage](https://github.com/Lorejimenez1/Fortnite-Society/blob/master/Public/images/SettingsPage.png)
+![petFinder](https://github.com/Lorejimenez1/CapstonePetLovers/blob/master/public/Pet.png)
 
 
 #### event finder
 + You must enter your state. for example Arizona
 + receive upcoming events related to pets like adoptions or fundraisers for a cause
 
-![eventFinder](https://github.com/Lorejimenez1/CapstonePetLovers/blob/master/public/Pet.png)
+
 
 ## Technology
 #### Front-End
