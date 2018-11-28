@@ -20,7 +20,7 @@ My vision was creating an app to find a specific animal and or breed in your are
 + You must enter your state. for example Arizona
 + receive upcoming events related to pets like adoptions or fundraisers for a cause
 
-![eventFinder](https://github.com/Lorejimenez1/Fortnite-Society/blob/master/Public/images/New.png)
+![eventFinder](https://github.com/Lorejimenez1/CapstonePetLovers/blob/master/public/pet.png)
 
 ## Technology
 #### Front-End
