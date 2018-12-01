@@ -1,3 +1,7 @@
+export const SEARCH_CHARACTERS_REQUEST = 'SEARCH_CHARACTERS_REQUEST';
+export const searchCharactersRequest = () => ({
+    type: SEARCH_CHARACTERS_REQUEST
+});
 
 export const FETCH_PETS_SUCCESS = 'FETCH_PETS_SUCCESS';
 export const fetchPetsSuccess = pets => ({
@@ -10,27 +14,29 @@ export const fetchPetsError = error => ({
     error
 });
 
-export const fetchPets = (location, animal, breed) => dispatch => {
-    if(breed === undefined) {
-        const breed=""
-    }
+export const searchPets = (location, animal, breed) => dispatch => {
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
-    const url = 'https://api.petfinder.com/pet.find?key=22d46e7c691779733cabbeb71d1b0058&location='+location+'&format=json&animal='+animal+'&count=6&breed='+breed; 
-    return fetch(proxyurl + url)
-            .then(res => {
+    const url = 'https://api.petfinder.com/pet.find?key=22d46e7c691779733cabbeb71d1b0058&location='+location+'&format=json&animal='+animal+'&count=6&breed='+breed;
+    dispatch(searchCharactersRequest());
+    const request = new Request(proxyurl+url)
+    fetch(request) 
+        .then(res => {
             if (!res.ok) {
-                return Promise.reject(res.statusText);
-            }
-            return res.json();
+                return Promise.reject(new Error(res.statusText));
+            } 
+         
+        return res.json();
         })
-        .then(data => {
-            dispatch(fetchPetsSuccess(data.petfinder.pets.pet));
-        });
-  
 
-};
+        .then(pets => dispatch(fetchPetsSuccess(pets.petfinder.pets.pet)))
+        .catch(err => dispatch(fetchPetsError(err.message)));
+    };
 
- 
+
+export const SEARCH_EVENTS_REQUEST = 'SEARCH_EVENTS_REQUEST';
+export const searchEventsRequest = () => ({
+    type: SEARCH_EVENTS_REQUEST
+});
 
 export const FETCH_EVENTS_ERROR = 'FETCH_EVENTS_ERROR';
 export const fetchEventsError = error => ({
@@ -45,18 +51,17 @@ export const fetchEventsSuccess = array => ({
     array
 });
 
-export const fetchEvents = location =>   dispatch => {
-        const url = 'https://stark-plateau-21732.herokuapp.com/api/event/'+location
-        return fetch(url)
+export const fetchEvents = location => dispatch => {
+    dispatch(searchEventsRequest());
+     const url = 'https://stark-plateau-21732.herokuapp.com/api/event/'+location
+     fetch(url)
         .then(res => {
             if (!res.ok) {
-                return Promise.reject(res.statusText);
+                return Promise.reject(new Error(res.statusText));
             }
             return res.json();
         })
-        .then(array => {
-            dispatch(fetchEventsSuccess(array))
-        });
-        
+        .then(array => dispatch(fetchEventsSuccess(array)))
+        .catch(err => dispatch(fetchEventsError(err.message)));
         
 };
