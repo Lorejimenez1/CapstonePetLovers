@@ -1,6 +1,4 @@
 import React from 'react';
-
-//import AddForm from './add-form';
 import './list.css';
 
 export default class Events extends React.Component {
