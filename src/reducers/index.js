@@ -8,10 +8,9 @@ const initialState = {
 };
 
 export const eventReducer = (state=initialState, action) => {
-	if (action.type === actions.FETCH_EVENTS_SUCCESS) {
+    if (action.type === actions.SEARCH_CHARACTERS_REQUEST) {
         return Object.assign({}, state, {
-            array: action.array,
-            loading: false,
+            loading: true,
             error: null
         });
     }
@@ -26,6 +25,20 @@ export const eventReducer = (state=initialState, action) => {
         return Object.assign({}, state, {
             error: action.error,
             loading: false
+        });
+    }  else if (action.type === actions.SEARCH_EVENTS_REQUEST) {
+        return Object.assign({}, state, {
+            loading: true,
+            error: null
+        });
+    }
+
+
+     else if (action.type === actions.FETCH_EVENTS_SUCCESS) {
+        return Object.assign({}, state, {
+            array: action.array,
+            loading: false,
+            error: null
         });
     }
        else if (action.type === actions.FETCH_EVENTS_ERROR) {
